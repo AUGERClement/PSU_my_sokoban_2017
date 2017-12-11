@@ -1,0 +1,11 @@
+/*
+** EPITECH PROJECT, 2017
+** my_putbuffer.c
+** File description:
+** 
+*/
+
+void my_putbuffer(char **buffer)
+{
+
+}

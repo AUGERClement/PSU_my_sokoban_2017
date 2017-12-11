@@ -1,0 +1,72 @@
+/*
+** EPITECH PROJECT, 2017
+** my_str_to_word_array.c
+** File description:
+** 
+*/
+
+#include <stdlib.h>
+
+int	charcounter(char *str)
+{
+	int i = 0;
+
+	while (str[i] >= 48 && str[i] <= 57 ||
+	       str[i] >= 65 && str[i] <= 90 ||
+	       str[i] >= 97 && str[i] <= 122) {
+		i++;
+	}
+	return (i);
+}
+
+int	my_strword(char const *str)
+{
+	int i = 0;
+	int j = 0;
+
+	while (str[i] != 0) {
+		if (str[i] < 48 || str[i] > 57 && str[i] < 65 ||
+		    str[i] > 90 && str[i] < 97 || str[i] > 122) {
+			j++;
+		}
+	}
+	return (j);
+}
+
+char	**my_str_to_word_array(char const *str)
+{
+	int i = 0;
+	int j = 0;
+	int k = my_strword(str);
+	int l = 0;
+	int m = 0;
+	int n = 0;
+	char **arr;
+
+	arr = malloc(sizeof(char*) * k + 1);
+	arr[k] = '\0';
+	while (str[i] != 0) {
+		while (str[i] < 48 || str[i] > 57 && str[i] < 65 ||
+		       str[i] > 90 && str[i] < 97 || str[i] > 122) {
+			i++;
+		}
+		n = charcounter(&str[i]);
+		arr[l] = malloc (sizeof(char) * n + 1);
+		while (str[i] >= 48 && str[i] <= 57 ||
+		       str[i] >= 65 && str[i] <= 90 ||
+		       str[i] >= 97 && str[i] <= 122) {
+			arr[l][m] = str[i];
+			i++;
+			m++;
+		}
+		m++;
+		arr[l][m] = '\0';
+		while (str[i] < 48 || str[i] > 57 && str[i] < 65 ||
+		      str[i] > 90 && str[i] < 97 || str[i] > 122) {
+			i++;
+		}
+		m = 0;
+		l++;
+	}
+	return (arr);
+}
