@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my.h
 ** File description:
-** 
+**
 */
 
 #include <stdlib.h>
@@ -19,6 +19,7 @@ void	my_sort_int_array(int *tab, int size);
 int	my_compute_power_rec(int nb, int power);
 int	my_compute_square_root(int nb);
 int	my_is_prime(int nb);
+int	is_char_in_str(char delta, char *str);
 int	my_find_prime_sup(int nb);
 char	*my_strcpy(char *dest, char const *src);
 char	*my_strncpy(char *dest, char const *src, int n);

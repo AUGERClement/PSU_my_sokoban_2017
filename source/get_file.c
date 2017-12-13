@@ -31,17 +31,38 @@ char *bufferize_file(char *filepath)
 	return (str);
 }
 
-char *bufferize(char const *filepath, int i)
+char *bufferize(char *filepath, int i)
 {
-	char *buffer = malloc(sizeof(char) * i) + 1;
+	char *buffer = malloc(sizeof(char) * (i + 1));
 	int fd = open(filepath, O_RDONLY);
 	int returned = 0;
 
 	if (fd == -1)
 		exit (84);
 	returned = read(fd, buffer, i);
+	buffer[i] = '\0';
 	if (returned == -1)
 		exit (84);
 	close(fd);
 	return (buffer);
+}
+
+char **convert_arr(char *buff)
+{
+	int i = 0;
+	int j = 0;
+	int k = number_of_lines(buff);
+	int cursor = 0;
+	char **map = malloc(sizeof(char *) * (k + 1));
+
+	while (i < k) {
+		j = my_lenline(buff + cursor);
+		map[i] = malloc(sizeof(char) * j + 1);
+		map[i] = my_strncpy(map[i], buff + cursor, j);
+		map[i][j] = '\0';
+		cursor = cursor + j + 1;
+		i++;
+	}
+	map[i] = NULL;
+	return (map);
 }

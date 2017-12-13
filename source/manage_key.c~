@@ -1,0 +1,73 @@
+/*
+** EPITECH PROJECT, 2017
+** manage_key.c
+** File description:
+** manage key event
+*/
+
+#include <ncurses.h>
+#include "sokoban.h"
+
+char **manage_key_up(char **map, player_t *pos)
+{
+	if (map[pos->x - 1][pos->y] == '#') {
+		return (map);
+	} else if (map[pos->x - 1][pos->y] == ' ') {
+		map[pos->x][pos->y] = pos->is_storage ? 'O' : ' ';
+		map[pos->x - 1][pos->y] = 'P';
+		pos->x--;
+		pos->is_storage = 0;
+	} else {
+		map = check_else_up(map, pos);
+		pos->x--;
+	}
+	return (map);
+}
+
+char **manage_key_down(char **map, player_t *pos)
+{
+	if (map[pos->x + 1][pos->y] == '#') {
+		return (map);
+	} else if (map[pos->x + 1][pos->y] == ' ') {
+		map[pos->x][pos->y] = pos->is_storage ? 'O' : ' ';
+		map[pos->x + 1][pos->y] = 'P';
+		pos->x++;
+		pos->is_storage = 0;
+	} else {
+		map = check_else_down(map, pos);
+		pos->x++;
+	}
+	return (map);
+}
+
+char **manage_key_right(char **map, player_t *pos)
+{
+	if (map[pos->x][pos->y + 1] == '#') {
+		return (map);
+	} else if (map[pos->x][pos->y + 1] == ' ') {
+		map[pos->x][pos->y] = pos->is_storage ? 'O' : ' ';
+		map[pos->x][pos->y + 1] = 'P';
+		pos->y++;
+		pos->is_storage = 0;
+	} else {
+		map = check_else_right(map, pos);
+		pos->y++;
+	}
+	return (map);
+}
+
+char **manage_key_left(char **map, player_t *pos)
+{
+	if (map[pos->x][pos->y - 1] == '#') {
+		return (map);
+	} else if (map[pos->x][pos->y - 1] == ' ') {
+		map[pos->x][pos->y] = pos->is_storage ? 'O' : ' ';
+		map[pos->x][pos->y - 1] = 'P';
+		pos->y--;
+		pos->is_storage = 0;
+	} else {
+		map = check_else_left(map, pos);
+		pos->y--;
+	}
+	return (map);
+}

@@ -15,11 +15,11 @@ int main(int argc, char **argv)
 
 	if (argc != 2) {
 		my_putstr("Invalid number of argument.\nRetry with -h\n");
-		exit (84);
+		exit(84);
 	} else if (my_strcmp(argv[1], "-h") == 0) {
 		str = bufferize_file("./source/help");
 		my_putstr(str);
-		exit (0);
+		exit(0);
 	} else {
 		sokoban(argv[1]);
 	}
