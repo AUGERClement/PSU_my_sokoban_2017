@@ -22,7 +22,6 @@ box_t *edit_box_down(char **map, player_t *pos, box_t **boxes)
 		boxes[i]->x++;
 		move = can_move(map, boxes[i]->x, boxes[i]->y);
 		boxes[i]->can_move = move;
-		pos->is_storage = boxes[i]->is_storage;
 	}
 	return (boxes[i]);
 }
@@ -41,7 +40,6 @@ box_t *edit_box_up(char **map, player_t *pos, box_t **boxes)
 		boxes[i]->x--;
 		move = can_move(map, boxes[i]->x, boxes[i]->y);
 		boxes[i]->can_move = move;
-		pos->is_storage = boxes[i]->is_storage;
 	}
 	return (boxes[i]);
 }
@@ -61,7 +59,6 @@ box_t *edit_box_right(char **map, player_t *pos, box_t **boxes)
 		boxes[i]->y++;
 		move = can_move(map, boxes[i]->x, boxes[i]->y);
 		boxes[i]->can_move = move;
-		pos->is_storage = boxes[i]->is_storage;
 		}
 	return (boxes[i]);
 }
@@ -81,7 +78,6 @@ box_t *edit_box_left(char **map, player_t *pos, box_t **boxes)
 		boxes[i]->y--;
 		move = can_move(map, boxes[i]->x, boxes[i]->y);
 		boxes[i]->can_move = move;
-		pos->is_storage = boxes[i]->is_storage;
 	}
         return (boxes[i]);
 }
