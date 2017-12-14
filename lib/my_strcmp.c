@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_strcmp.c
 ** File description:
-**
+** cmp two string
 */
 
 int my_strcmp(char *s1, char *s2)

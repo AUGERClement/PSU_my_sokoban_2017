@@ -8,7 +8,7 @@
 #include "sokoban.h"
 #include "my.h"
 
-void check_map(char *str)
+int check_map(char *str)
 {
 	int i = 0;
 	int valid = 0;
@@ -25,6 +25,7 @@ void check_map(char *str)
 	valid = check_char(str);
 	if (player != 1 || boxes != storages || valid)
 		exit(84);
+	return (boxes);
 }
 
 int check_case_p(char delta, int player)

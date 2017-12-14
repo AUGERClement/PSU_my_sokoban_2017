@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_putstr.c
 ** File description:
-** 
+** print a string
 */
 
 #include "my.h"

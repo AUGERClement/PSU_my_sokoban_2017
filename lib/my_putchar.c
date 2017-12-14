@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_putchar.c
 ** File description:
-** 
+** print a char
 */
 
 #include <unistd.h>

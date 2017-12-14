@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_strlen.c
 ** File description:
-** 
+** return the lenght of a string
 */
 
 int	my_strlen(char const *str)

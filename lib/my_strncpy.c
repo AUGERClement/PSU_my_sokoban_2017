@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_strncpy.c
 ** File description:
-** 
+** cpy n char in another str
 */
 
 char	*my_strncpy (char *dest, char const *src, int n)

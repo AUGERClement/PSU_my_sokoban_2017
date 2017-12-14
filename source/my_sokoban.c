@@ -13,64 +13,44 @@
 void sokoban(char *filepath)
 {
 	int i;
-	char *buffer;
-	char **map;
-	player_t *pos;
+	char *buffer = bufferize_file(filepath);
+	char **map = convert_arr(buffer);
+	int number_of_boxes = check_map(buffer);
+	player_t *pos = init_screen_n_player(map);
+	box_t **boxes = init_boxes(map, number_of_boxes);
 
-	buffer = bufferize_file(filepath);
-	check_map(buffer);
-	map = convert_arr(buffer);
-	pos = init_screen_n_player(map);
 	while (map != NULL) {
 		clear();
 		i = need_enlarge(map);
 		if (i == 0)
 			my_putarr_ncurses(map);
-		map = get_param(getch(), map, filepath, pos);
+		map = get_param(map, filepath, pos, boxes);
 		refresh();
-		//is_over(map);
+		can_continue(map, boxes, pos);
 	}
-	endwin();
 }
 
-char **get_param(int key, char **map, char *filepath, player_t *pos)
+char **get_param(char **map, char *filepath, player_t *pos, box_t **boxes)
 {
-	switch (key) {
+	switch (getch()) {
 	case (KEY_UP):
-		map = manage_key_up(map, pos);
+		map = manage_key_up(map, pos, boxes);
 		break;
 	case (KEY_DOWN):
-		map = manage_key_down(map, pos);
+		map = manage_key_down(map, pos, boxes);
 		break;
 	case (KEY_RIGHT):
-		map = manage_key_right(map, pos);
+		map = manage_key_right(map, pos, boxes);
 		break;
 	case (KEY_LEFT):
-		map = manage_key_left(map, pos);
+		map = manage_key_left(map, pos, boxes);
 		break;
 	case (' '):
-		free_map(map);
-		reset(filepath);
+		free_soko(map, boxes, pos);
+		sokoban(filepath);
 		return (NULL);
 	}
 	return (map);
-}
-
-void free_map(char **map)
-{
-	int i = 0;
-
-	while (map[i] != NULL) {
-		free(map[i]);
-		i++;
-	}
-}
-
-void reset(char *filepath)
-{
-	clear();
-	endwin();
-	sokoban(filepath);
 }
 
 player_t *init_screen_n_player(char **map)
