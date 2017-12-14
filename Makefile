@@ -21,7 +21,7 @@ SRC=	$(SRCDOS)get_file.c		\
 
 OBJ=	$(SRC:.c=.o)
 
-CFLAGS=	-Wall -Wextra -W -g3 -Iinclude
+CFLAGS=	-Wall -Wextra -W -Iinclude
 
 LDFLAGS = -L./lib -lmy -lncurses
 
