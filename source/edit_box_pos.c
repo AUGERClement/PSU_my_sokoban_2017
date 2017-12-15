@@ -44,7 +44,6 @@ box_t *edit_box_up(char **map, player_t *pos, box_t **boxes)
 	return (boxes[i]);
 }
 
-
 box_t *edit_box_right(char **map, player_t *pos, box_t **boxes)
 {
 	int i = 0;

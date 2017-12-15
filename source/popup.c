@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_popup.c
 ** File description:
-**
+** popup_to_enlarge_window
 */
 
 #include <ncurses.h>

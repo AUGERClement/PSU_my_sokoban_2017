@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my.h
 ** File description:
-**
+** std header
 */
 
 #include <stdlib.h>
