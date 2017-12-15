@@ -23,9 +23,9 @@ void free_map(char **map)
 	int i = 0;
 
 	while (map[i] != NULL) {
-                free(map[i]);
-                i++;
-        }
+		free(map[i]);
+		i++;
+	}
 	return;
 }
 

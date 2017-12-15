@@ -28,10 +28,10 @@ box_t *edit_box_down(char **map, player_t *pos, box_t **boxes)
 
 box_t *edit_box_up(char **map, player_t *pos, box_t **boxes)
 {
-        int i = 0;
-        int move = 0;
+	int i = 0;
+	int move = 0;
 
-        while (boxes[i]->x != pos->x - 1 ||
+	while (boxes[i]->x != pos->x - 1 ||
 	       boxes[i]->y != pos->y) {
 		i++;
 	}
@@ -47,10 +47,10 @@ box_t *edit_box_up(char **map, player_t *pos, box_t **boxes)
 
 box_t *edit_box_right(char **map, player_t *pos, box_t **boxes)
 {
-        int i = 0;
-        int move = 0;
+	int i = 0;
+	int move = 0;
 
-        while (boxes[i]->x != pos->x ||
+	while (boxes[i]->x != pos->x ||
 	       boxes[i]->y != pos->y + 1) {
 		i++;
 	}
@@ -79,5 +79,5 @@ box_t *edit_box_left(char **map, player_t *pos, box_t **boxes)
 		move = can_move(map, boxes[i]->x, boxes[i]->y);
 		boxes[i]->can_move = move;
 	}
-        return (boxes[i]);
+	return (boxes[i]);
 }
